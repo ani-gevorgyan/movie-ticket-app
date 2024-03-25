@@ -22,52 +22,50 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+# Movie-ticket-app
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+This is a simple movie ticket booking application. The application uses NestJS, Postgres for a DB.
 
-## Installation
+## Available Scripts
 
-```bash
-$ npm install
-```
+In the project directory, you can run:
 
-## Running the app
+### `npm install` 
 
-```bash
-# development
-$ npm run start
+which installs all the necessary packages.
 
-# watch mode
-$ npm run start:dev
+## Create movie-app database
 
-# production mode
-$ npm run start:prod
-```
+### 1. `sudo -u postgres psql`
 
-## Test
+### 2. `CREATE DATABASE movie-app;`
 
-```bash
-# unit tests
-$ npm run test
+### 3. `\connect movie-app;`
 
-# e2e tests
-$ npm run test:e2e
+## Run Migrations
 
-# test coverage
-$ npm run test:cov
-```
+### `npm run typeorm:run-migrations`
 
-## Support
+## Start server
+In the app directory run.<br />
+### `npm run start:dev`
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+This runs the server in development environment. <br />
+The server will reload if you make any changes. <br />
 
-## Stay in touch
+## Database Structure
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+The DB consistis of Tables: { RoomsTable, MoviesTable, SeatsTable, ScreeningsTable, ScreeningSeatsTable, UsersTable, TicketsTable }
 
-## License
+`RoomsTable` - responsible for storing the rooms in cinema.
+`MoviesTable` - responsible for storing all the movies.
+`SeatsTable` - reponsible for storing the seats in a specific room, which is determines by the size of the room.
+`ScreeningsTable` - responsible for storing the screenings in each room. Uses movieId and roomId to construct a screening.
+`ScreeningsSeatsTable` - responsible for storing the seats of the screening, so that it is identifiable which seats are available for users to choose.
+`UsersTable` - responsible to store the users of the application. We have two types of users: 'customer' and 'admin'. 'customer' users can only get the movie, room, screening datas as well as buy a ticket, however they cannot make any changes to the specified entities. 'admin' users on the other hand are able to perform CRUD operations on all of the above tables.
+Right now 'admin' users can also registerd by specifying their role in the request body.
+`TicketsTable` - responsible for storing the ticket information that the user bought. 
 
-Nest is [MIT licensed](LICENSE).
+## Postman link
+
+
