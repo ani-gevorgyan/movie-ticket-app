@@ -8,6 +8,7 @@ import {
   Query,
   Put,
   UseGuards,
+  Delete,
 } from '@nestjs/common';
 import { ScreeningService } from './screening.service';
 import { CreateScreeningRequestDto } from './datatypes/dto/createScreening.dto';
@@ -69,5 +70,12 @@ export class ScreeningController {
   ): Promise<ScreeningResponseDto> {
     const screening = await this.screeningService.getScreeningById(id);
     return mapScreeningToDto(screening);
+  }
+
+  @Delete('/:id')
+  async deleteScreening(
+    @Param('id', new ParseUUIDPipe()) id: string,
+  ): Promise<void> {
+    return this.screeningService.deleteScreening(id);
   }
 }

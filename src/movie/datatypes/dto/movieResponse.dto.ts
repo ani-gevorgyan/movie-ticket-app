@@ -11,6 +11,9 @@ export class MovieResponseDto {
   duration: number;
 
   @Expose()
+  posterLink: string;
+
+  @Expose()
   screenings: ScreeningDto[];
 }
 

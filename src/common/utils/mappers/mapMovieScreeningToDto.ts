@@ -6,11 +6,12 @@ export function mapMovieScreeningToDto(
   movieScreening: MovieEntity,
 ): MovieScreeningsResponseDto {
   if (!movieScreening) return null;
-  const { id, title, duration } = movieScreening;
+  const { id, title, duration, posterLink } = movieScreening;
   return {
     id,
     title,
     duration,
+    posterLink,
     screenings: movieScreening.screenings.map((screening) => {
       return {
         id: screening.id,

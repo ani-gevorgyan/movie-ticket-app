@@ -2,12 +2,13 @@ import { MovieResponseDto } from '../../../movie/datatypes/dto/movieResponse.dto
 import { MovieEntity } from '../../../movie/movie.entity';
 
 export function mapMovieToDto(movie: MovieEntity): MovieResponseDto {
-  const { id, duration, title } = movie;
+  const { id, duration, title, posterLink } = movie;
   if (!movie) return null;
   return {
     id,
     duration,
     title,
+    posterLink,
     screenings: movie.screenings?.map((screening) => {
       return {
         id: screening.id,

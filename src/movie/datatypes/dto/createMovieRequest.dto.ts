@@ -9,6 +9,11 @@ export class CreateMovieRequestDto {
 
   @Expose()
   @IsNotEmpty()
+  @IsString()
+  posterLink: string;
+
+  @Expose()
+  @IsNotEmpty()
   @IsNumber()
   duration: number;
 }

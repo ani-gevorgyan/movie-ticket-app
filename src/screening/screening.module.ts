@@ -15,8 +15,8 @@ import { ScreeningController } from './screening.controller';
 import { RoomModule } from '../room/room.module';
 import { RoomRepository } from '../room/room.repository';
 import { RoomService } from '../room/room.service';
-import { UserModule } from 'src/user/user.module';
-import { TokenModule } from 'src/token/token.module';
+import { UserModule } from '../user/user.module';
+import { TokenModule } from '../token/token.module';
 
 @Module({
   imports: [

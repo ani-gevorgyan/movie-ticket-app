@@ -20,6 +20,11 @@ export class CreateMoviesTable1711215447658 implements MigrationInterface {
             length: '255',
           },
           {
+            name: 'posterLink',
+            type: 'varchar',
+            length: '255',
+          },
+          {
             name: 'duration',
             type: 'int',
           },

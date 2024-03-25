@@ -7,6 +7,9 @@ export class MovieEntity extends BaseEntity {
   @Column()
   title: string;
 
+  @Column()
+  posterLink: string;
+
   // Duration of a movie in minutes.
   @Column({ type: 'int' })
   duration: number;

@@ -26,29 +26,29 @@
 
 This is a simple movie ticket booking application. The application uses NestJS, Postgres for a DB.
 
-##### Available Scripts
+#### Available Scripts
 
 In the project directory, you can run:
 
-#### `npm install` 
+##### `npm install` 
 
 which installs all the necessary packages.
 
-### Create movie-app database
+#### Create movie-app database
 
-#### 1. `sudo -u postgres psql`
+##### 1. `sudo -u postgres psql`
 
-#### 2. `CREATE DATABASE movie-app;`
+##### 2. `CREATE DATABASE movie_app;`
 
-#### 3. `\connect movie-app;`
+##### 3. `\connect movie_app;`
 
-### Run Migrations
+#### Run Migrations
 
-#### `npm run typeorm:run-migrations`
+##### `npm run typeorm:run-migrations`
 
 ### Start server
 In the app directory run.<br />
-#### `npm run start:dev`
+##### `npm run start:dev`
 
 This runs the server in development environment. <br />
 The server will reload if you make any changes. <br />
@@ -67,5 +67,8 @@ Right now 'admin' users can also registerd by specifying their role in the reque
 `TicketsTable` - responsible for storing the ticket information that the user bought. <br />
 
 ## Postman link
+
+https://www.postman.com/gold-space-386125/workspace/movie-ticket-app
+
 
 

@@ -9,6 +9,9 @@ export class MovieScreeningsResponseDto {
   title: string;
 
   @Expose()
+  posterLink: string;
+
+  @Expose()
   duration: number;
 
   @Expose()

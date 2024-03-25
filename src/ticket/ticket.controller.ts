@@ -10,7 +10,7 @@ import { RequestWithUser } from '../common/datatypes/auth';
 import { mapTicketToDto } from 'src/common/utils/mappers/mapTicketsToDto.mapper';
 import { TicketEntity } from './ticket.entity';
 
-@Controller('ticket')
+@Controller('tickets')
 @UseGuards(AuthGuard)
 export class TicketController {
   constructor(private readonly ticketService: TicketService) {}
