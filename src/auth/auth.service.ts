@@ -14,21 +14,14 @@ import {
   UserLoginResponseData,
   UserSignUpResponseData,
 } from '../user/datatypes/internal/user';
-import { UserRole } from '../common/constants/user';
 import { UserService } from '../user/user.service';
 import { TokenService } from '../token/token.service';
-import { MovieService } from '../movie/movie.service';
-import { RoomService } from '../room/room.service';
-import { ScreeningService } from '../screening/screening.service';
 
 @Injectable()
 export class AuthService {
   constructor(
     private userService: UserService,
     private tokenService: TokenService,
-    private movieService: MovieService,
-    private roomService: RoomService,
-    private screeningServie: ScreeningService,
   ) {}
 
   async login(
@@ -46,9 +39,10 @@ export class AuthService {
     if (!isPasswordMatching) {
       throw new UnauthorizedException(UNAUTHORIZED_ERROR_MESSAGE);
     }
+    const accessToken = await this.tokenService.generateToken(user.id);
 
     return {
-      accessToken: await this.tokenService.generateToken(user.id),
+      accessToken,
     };
   }
 
@@ -66,7 +60,6 @@ export class AuthService {
     signupRequestData = {
       ...signupRequestData,
       password: hashedPassword,
-      role: UserRole.CUSTOMER,
     };
 
     const newUser = await this.userService.createUser(signupRequestData);

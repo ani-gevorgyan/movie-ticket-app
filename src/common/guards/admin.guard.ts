@@ -14,7 +14,7 @@ export class AdminGuard implements CanActivate {
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
     const request = context.switchToHttp().getRequest();
-    const user = await this.userService.getById(request.user.id);
+    const user = await this.userService.getById(request.user);
     if (!user) {
       throw new ForbiddenException(UNAUTHORIZED_REQUEST_ERROR_MESSAGE);
     }

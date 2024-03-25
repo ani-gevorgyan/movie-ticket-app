@@ -6,8 +6,11 @@ import {
   IsString,
   MinLength,
   MaxLength,
+  IsOptional,
+  IsEnum,
 } from 'class-validator';
 import { Match } from '../../../common/decorators/match.decorator';
+import { UserRole } from '../../../common/constants/user';
 
 export class SignUpRequestDto {
   @Expose()
@@ -29,4 +32,9 @@ export class SignUpRequestDto {
   @IsString()
   @Match('password')
   confirmPassword: string;
+
+  @Expose()
+  @IsOptional()
+  @IsEnum(UserRole)
+  role: UserRole;
 }
