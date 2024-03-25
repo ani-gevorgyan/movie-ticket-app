@@ -26,29 +26,29 @@
 
 This is a simple movie ticket booking application. The application uses NestJS, Postgres for a DB.
 
-## Available Scripts
+##### Available Scripts
 
 In the project directory, you can run:
 
-### `npm install` 
+#### `npm install` 
 
 which installs all the necessary packages.
 
-## Create movie-app database
+### Create movie-app database
 
-### 1. `sudo -u postgres psql`
+#### 1. `sudo -u postgres psql`
 
-### 2. `CREATE DATABASE movie-app;`
+#### 2. `CREATE DATABASE movie-app;`
 
-### 3. `\connect movie-app;`
+#### 3. `\connect movie-app;`
 
-## Run Migrations
+### Run Migrations
 
-### `npm run typeorm:run-migrations`
+#### `npm run typeorm:run-migrations`
 
-## Start server
+### Start server
 In the app directory run.<br />
-### `npm run start:dev`
+#### `npm run start:dev`
 
 This runs the server in development environment. <br />
 The server will reload if you make any changes. <br />
@@ -57,14 +57,14 @@ The server will reload if you make any changes. <br />
 
 The DB consistis of Tables: { RoomsTable, MoviesTable, SeatsTable, ScreeningsTable, ScreeningSeatsTable, UsersTable, TicketsTable }
 
-`RoomsTable` - responsible for storing the rooms in cinema.
-`MoviesTable` - responsible for storing all the movies.
-`SeatsTable` - reponsible for storing the seats in a specific room, which is determines by the size of the room.
-`ScreeningsTable` - responsible for storing the screenings in each room. Uses movieId and roomId to construct a screening.
-`ScreeningsSeatsTable` - responsible for storing the seats of the screening, so that it is identifiable which seats are available for users to choose.
+`RoomsTable` - responsible for storing the rooms in cinema. <br />
+`MoviesTable` - responsible for storing all the movies.<br />
+`SeatsTable` - reponsible for storing the seats in a specific room, which is determines by the size of the room.<br />
+`ScreeningsTable` - responsible for storing the screenings in each room. Uses movieId and roomId to construct a screening.<br />
+`ScreeningsSeatsTable` - responsible for storing the seats of the screening, so that it is identifiable which seats are available for users to choose.<br />
 `UsersTable` - responsible to store the users of the application. We have two types of users: 'customer' and 'admin'. 'customer' users can only get the movie, room, screening datas as well as buy a ticket, however they cannot make any changes to the specified entities. 'admin' users on the other hand are able to perform CRUD operations on all of the above tables.
-Right now 'admin' users can also registerd by specifying their role in the request body.
-`TicketsTable` - responsible for storing the ticket information that the user bought. 
+Right now 'admin' users can also registerd by specifying their role in the request body.<br />
+`TicketsTable` - responsible for storing the ticket information that the user bought. <br />
 
 ## Postman link
 
